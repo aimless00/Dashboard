@@ -1,0 +1,14 @@
+.pie-chart-upper-text{
+    background-color:white;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.announcement{
+    background-color: white;
+    height: 300px;
+    padding-top: 5px;
+}
+.announcement h4{
+    color: #1B2559;
+}

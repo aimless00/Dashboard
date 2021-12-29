@@ -5,50 +5,56 @@ import {
     XAxis,
     YAxis,
     CartesianGrid,
-    Tooltip,
-    Legend
 } from "recharts";
+
+import './Statictics.css'
 
 const data = [
     {
-        name: "Page A",
-        uv: 4000,
+        name: "Sun",
+        uv: .5,
         pv: 2400,
-        amt: 2400
+        amt: 2400,
+        value: 0
     },
     {
-        name: "Page B",
-        uv: 3000,
+        name: "Mon",
+        uv: 8,
         pv: 1398,
-        amt: 2210
+        amt: 2210,
+        value: 2
     },
     {
-        name: "Page C",
-        uv: 2000,
+        name: "Tue",
+        uv: 4.8,
         pv: 9800,
-        amt: 2290
+        amt: 2290,
+        value: 4
     },
     {
-        name: "Page D",
-        uv: 2780,
+        name: "Wed",
+        uv: 6,
         pv: 3908,
-        amt: 2000
+        amt: 2000,
+        value: 6
     },
     {
-        name: "Page E",
-        uv: 1890,
+        name: "Thu",
+        uv: 9,
         pv: 4800,
-        amt: 2181
+        amt: 2181,
+        value: 8
     },
     {
-        name: "Page F",
-        uv: 2390,
+        name: "Fri",
+        uv: 9,
         pv: 3800,
-        amt: 2500
+        amt: 2500,
+        value: 10
     },
     {
-        name: "Page G",
-        uv: 3490,
+        name: "Sat",
+        uv: 10,
         pv: 4300,
         amt: 2100
     }
@@ -58,9 +64,36 @@ const Statictics = () => {
 
     return (
         <div>
+            <div className='d-flex justify-content-between pt-3'>
+                <div>
+                    <h3 className='fw-bold'>Your statistics</h3>
+                    <h4>Overview</h4>
+                </div>
+                <div>
+                    <div className='d-flex justify-content-between align-items-center'>
+                        <h4 className='fw-bold mt-1'>Graph</h4>
+                        <div className='toggole'>
+                            <div className="form-check form-switch">
+                                <input className="form-check-input fs-3" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                                <label className="form-check-label" for="flexSwitchCheckChecked"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 className='text-secondary dropdown-toggle'>Show: <small className='text-primary'>Monthly</small></h5>
+                </div>
+            </div>
+            <div className='d-flex'>
+                <p className='active-user'>Active user</p>
+                <p className='text-secondary ms-3'>Attendance</p>
+                <p className='text-secondary ms-3'>Hour spent</p>
+                <p className='text-secondary ms-3'>Enrolled</p>
+                <p className='text-secondary ms-3'>Question resolved</p>
+                <p className='text-secondary ms-3'>Quiz score</p>
+            </div>
             <LineChart
-                width={700}
-                height={300}
+                className='LineChart-style'
+                width={850}
+                height={350}
                 data={data}
                 margin={{
                     top: 5,
@@ -69,18 +102,15 @@ const Statictics = () => {
                     bottom: 5
                 }}
             >
-                <CartesianGrid strokeDasharray="3 3" />
+                <CartesianGrid strokeDasharray="5" />
                 <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
+                <YAxis dataKey="value" />
                 <Line
                     type="monotone"
-                    dataKey="pv"
-                    stroke="#8884d8"
+                    dataKey="uv"
+                    stroke="blue"
                     activeDot={{ r: 8 }}
                 />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
             </LineChart>
         </div>
     );

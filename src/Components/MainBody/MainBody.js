@@ -6,7 +6,7 @@ import AllChart from '../AllCharts/AllChart/AllChart';
 const MainBody = () => {
     return (
         <div className='container'>
-            <h2 className='head-text'>Performance</h2>
+            <h2 className='head-text mt-5 mb-5'>Performance</h2>
 
             <div className='row'>
                 <div className='head-line col-9'>
@@ -39,6 +39,7 @@ const MainBody = () => {
                 </div>
             </div>
             <AllChart></AllChart>
+            <div className='mt-5'></div>
         </div>
     );
 };

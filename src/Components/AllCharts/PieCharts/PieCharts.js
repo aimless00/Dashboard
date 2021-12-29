@@ -1,43 +1,27 @@
 import React from 'react';
-import { Cell, Pie, PieChart } from 'recharts';
+import DonutChart from "react-donut-chart";
+import './PieChart.css'
 
 const PieCharts = () => {
-    const data01 = [
-        {
-            "name": "Group A",
-            "value": 36,
-        },
-        {
-            "name": "Group B",
-            "value": 36,
-        },
-        {
-            "name": "Group C",
-            "value": 28,
-        }
-    ];
-    const color = [
-        {
-            "value": "green"
-        },
-        {
-            "value": "green"
-        },
-        {
-            "value": "#8884d8"
-        }
-    ]
     return (
-        <div>
-            <PieChart width={250} height={250}>
-                <Pie data={data01} innerRadius={60} outerRadius={100}>
+        <div >
+            <DonutChart
+                className="PieChart-style fs-3"
+                data={[
                     {
-                        color.map((index) => (
-                            <Cell fill={color[index]} />
-                        ))
+                        label: `Course Completed`,
+                        value: 36
+                    },
+                    {
+                        label: "Ongoing course",
+                        value: 24
+                    },
+                    {
+                        label: "Not started",
+                        value: 36
                     }
-                </Pie>
-            </PieChart>
+                ]}
+            />
         </div>
     );
 };
